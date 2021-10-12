@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Utilisateurs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        {{ include('layouts/styles.html.twig') }}
+    </head>
+    <body>
+        {{ include('layouts/header.html.twig') }}
+        <div id="app" class="container">
+            <h2>Utilisateurs</h2>
+            <span>Ajouter un utilisateur</span>
+            <hr>
+            <div>
+                <form id="user_form" action="{{ path('user_save') }}" method="post">
+                    <div class="form-group">
+                        <label>Identifiant</label>
+                        <input name="username" type="text" class="form-control" placeholder="Identifiant" required>
+                        <span id="result-login"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input name="firstname" type="text" class="form-control" placeholder="Prénom">
+                    </div>
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input name="lastname" type="text" class="form-control" placeholder="Nom">
+                    </div>
+                    <div class="password form-group">
+                        <label>Mot de passe</label>
+                        <input name="password" id="password" type="password" class="form-control" placeholder="Mot de passe" required>
+                        <span id="result-password"></span>
+                    </div>
+                    <div class="password form-group">
+                        <label>Confirmer les mot de passe</label>
+                        <input name="confirm" id="confirm" type="password" class="form-control" placeholder="Confirmer les mot de passe">
+                    </div>
+	                <div>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+{{ include('layouts/footer.html.twig') }}

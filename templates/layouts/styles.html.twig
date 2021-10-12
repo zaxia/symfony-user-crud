@@ -1,0 +1,11 @@
+{% set currentPath = path(app.request.attributes.get('_route'),
+                       app.request.attributes.get('_route_params')) %}
+
+
+<link rel="stylesheet" href="{{ asset('lib/css/bootstrap.min.css') }}" type="text/css" />
+
+{% if currentPath == '/' %}
+    <link rel="stylesheet" href="{{ asset('css/home/index.css') }}" type="text/css" />
+{% elseif currentPath == '/login' %}
+    <link rel="stylesheet" href="{{ asset('css/home/login.css') }}" type="text/css" />
+{% endif %}

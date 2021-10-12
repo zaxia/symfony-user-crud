@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Connexion</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    {{ include('layouts/styles.html.twig') }}
+</head>
+<body>
+    {{ include('layouts/header.html.twig') }}
+    <div id="app" class="container">
+        <h2>Connexion</h2>
+        <div class="form-group">
+            <label>Identifiant</label>
+            <input id="username" name="username" type="text" class="form-control" placeholder="Identifiant" required>
+            <span id="result-login"></span>
+        </div>
+        <div class="password form-group">
+            <label>Mot de passe</label>
+            <input id="password" name="password" type="password" class="form-control" placeholder="Mot de passe" required>
+            <span id="result-password"></span>
+        </div>
+        <button id="connect" class="btn btn-primary">Se connecter</button>
+    </div>
+{{ include('layouts/footer.html.twig') }}

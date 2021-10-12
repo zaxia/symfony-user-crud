@@ -1,0 +1,3 @@
+symfony server:start   pour lancer le serveur principal
+
+php bin/console run:symfony-5-websocket-server  pour lancer le serveur de websocket nommé symfony-5-websocket-server

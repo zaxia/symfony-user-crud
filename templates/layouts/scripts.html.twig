@@ -1,0 +1,16 @@
+{% set currentPath = path(app.request.attributes.get('_route'),
+                       app.request.attributes.get('_route_params')) %}
+
+<script src="{{ asset('lib/js/jquery.slim.min.js') }}"></script>
+<script src="{{ asset('lib/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('lib/js/axios.min.js') }}"></script>
+
+{% if currentPath == '/' %}
+    <script src="{{ asset('js/home/index.js') }}"></script>
+{% elseif currentPath == '/login' %}
+    <script src="{{ asset('js/home/login.js') }}"></script>
+{% elseif currentPath == '/user/add' %}
+    <script src="{{ asset('js/user/add.js') }}"></script>
+{% elseif currentPath == '/user/edit' %}
+    <script src="{{ asset('js/user/edit.js') }}"></script>
+{% endif %}

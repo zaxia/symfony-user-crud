@@ -1,0 +1,36 @@
+index:
+   path: /
+   controller: App\Controller\HomeController::index
+login:
+   path: /login
+   controller: App\Controller\HomeController::login
+connect:
+   path: /connect
+   controller: App\Controller\HomeController::connect
+   methods: POST
+test_calcul:
+   path: /test_calcul
+   controller: App\Controller\HomeController::test_calcul
+user_list:
+   path: /user/list
+   controller: App\Controller\UserController::list
+user_add:
+   path: /user/add
+   controller: App\Controller\UserController::add
+user_save:
+   path: /user/save
+   controller: App\Controller\UserController::save
+   methods: POST
+user_edit:
+   path: /user/edit/{username}
+   controller: App\Controller\UserController::edit
+user_update:
+   path: /user/update/{username}
+   controller: App\Controller\UserController::update
+   methods: POST
+user_delete:
+   path: /user/delete/{username}
+   controller: App\Controller\UserController::delete
+user_check_username:
+   path: /user/checkUsername
+   controller: App\Controller\UserController::checkUsername
