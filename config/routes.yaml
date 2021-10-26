@@ -1,3 +1,4 @@
+# Home
 index:
    path: /
    controller: App\Controller\HomeController::index
@@ -8,9 +9,7 @@ connect:
    path: /connect
    controller: App\Controller\HomeController::connect
    methods: POST
-test_calcul:
-   path: /test_calcul
-   controller: App\Controller\HomeController::test_calcul
+# User
 user_list:
    path: /user/list
    controller: App\Controller\UserController::list
@@ -34,3 +33,29 @@ user_delete:
 user_check_username:
    path: /user/checkUsername
    controller: App\Controller\UserController::checkUsername
+# Calculation
+calculation:
+   path: /calculation
+   controller: App\Controller\CalculationController::calculation
+calculation_test:
+   path: /calculation/test
+   controller: App\Controller\CalculationController::ajax_test
+# Chat
+chat:
+   path: /chat
+   controller: App\Controller\ChatController::chat
+# Email
+email:
+   path: /email
+   controller: App\Controller\EmailController::email
+send_email:
+   path: /email/send
+   controller: App\Controller\EmailController::send
+   methods: POST
+# Solidity
+solidity:
+   path: /solidity
+   controller: App\Controller\SolidityController::solidity
+solidity_test:
+   path: /solidity/test
+   controller: App\Controller\SolidityController::ajax_test

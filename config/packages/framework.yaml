@@ -17,6 +17,14 @@ framework:
     php_errors:
         log: true
 
+    # cache:
+    #     prefix_seed: <mypool>
+    #     pools:
+    #         app.cache.mypool:
+    #             adapter: cache.adapter.apcu
+    #             public: false
+    #             default_lifetime: 31536000  
+
 when@test:
     framework:
         test: true

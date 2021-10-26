@@ -6,6 +6,7 @@ use DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Cache\Adapter\AdapterInterface;
 
 class UserController extends AbstractController
 {
@@ -16,16 +17,33 @@ class UserController extends AbstractController
         $this->requestStack = $requestStack;
     }
 
-    public function list(): Response
+    //Using cache
+    public function list(AdapterInterface $cache): Response
     {
         $session = $this->requestStack->getSession();
         if($session->get("connected_user")==null)
             return $this->redirectToRoute('login');
-        $users = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findAll();
-        return $this->render('user/list.html.twig', ['users' => $users]);
+        $users = $cache->getItem("users");
+        if(!$users->isHit()){
+            $users->set($this->getDoctrine()
+                ->getRepository(User::class)
+                ->findAll());
+            $cache->save($users);
+        }
+        return $this->render('user/list.html.twig', ['users' => $users->get()]);
     }
+
+    //Not using cache
+    // public function list(): Response
+    // {
+    //     $session = $this->requestStack->getSession();
+    //     if($session->get("connected_user")==null)
+    //         return $this->redirectToRoute('login');
+    //     $users = $this->getDoctrine()
+    //         ->getRepository(User::class)
+    //         ->findAll();
+    //     return $this->render('user/list.html.twig', ['users' => $users]);
+    // }
 
     public function add(): Response
     {
